@@ -14,7 +14,7 @@ export async function handler(event) {
   const url = `https://api.smartthings.com/v1/devices/${encodeURIComponent(id)}/commands`;
 
   try {
-    const statusRes = await fetch(getUrl, {
+    const statusRes = await fetch(statusUrl, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${key}`,
