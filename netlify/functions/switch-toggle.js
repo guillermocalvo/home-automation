@@ -52,7 +52,7 @@ export async function handler(event) {
 <!DOCTYPE html>
 <html>
 <body>
-<h1>${status}</h1>
+<h1>${result}</h1>
 <script>
 window.onload = () => window.close();
 </script>
