@@ -60,7 +60,7 @@ window.onload = () => window.close();
 </html>`;
 
     return { statusCode: response.status, html, };
-  } catch {
-    return { statusCode: 500, body: "Upstream request failed", };
+  } catch (err) {
+    return { statusCode: 500, body: `Upstream request failed: ${err.message}`, };
   }
 }
