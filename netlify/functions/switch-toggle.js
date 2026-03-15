@@ -46,9 +46,20 @@ export async function handler(event) {
       body: JSON.stringify(payload),
     });
 
-    const body = await response.text();
+    const responseJson = await response.json();
+    const result = responseJson?.results?.[0]?.status ?? "UNKNOWN";
+    const html = `
+<!DOCTYPE html>
+<html>
+<body>
+<h1>${status}</h1>
+<script>
+window.onload = () => window.close();
+</script>
+</body>
+</html>`;
 
-    return { statusCode: response.status, body, };
+    return { statusCode: response.status, html, };
   } catch {
     return { statusCode: 500, body: "Upstream request failed", };
   }
